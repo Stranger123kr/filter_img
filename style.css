@@ -92,8 +92,8 @@ button.active {
 }
 .line {
   position: absolute;
-  border: 5px solid #545454;
-  border-top: 5px solid #fff;
+  border: 5px solid #fff;
+  border-top: 5px solid #545454;
   padding: 1rem 1rem;
   border-radius: 50%;
   top: 50%;
