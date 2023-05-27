@@ -89,7 +89,13 @@ button.active {
   margin: 2rem auto;
   position: relative;
   display: none;
+  top: 0;
 }
+
+.loading.show {
+  display: block;
+}
+
 .line {
   position: absolute;
   border: 5px solid #fff;

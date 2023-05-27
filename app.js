@@ -3,12 +3,23 @@
 let filter_buttons = document.querySelectorAll(".filter_buttons button");
 const filterable_Cards = document.querySelectorAll(".filterable_Cards .card");
 const filterable_Cards_2 = document.querySelector(".filterable_Cards");
+const loading = document.querySelector(".loading");
+
+// this is a function for loading
+
+function show() {
+  loading.classList.add("show");
+}
+function hide() {
+  loading.classList.remove("show");
+}
 
 // Define the filter_cards functions
 
 const filleter_Card = (e) => {
   document.querySelector(".active").classList.remove("active");
   e.target.classList.add("active");
+
   get_Category(e.target.getAttribute("data-name"));
 
   // Iterates over each filterable cards
@@ -33,12 +44,14 @@ const filleter_Card = (e) => {
 filter_buttons.forEach((button) =>
   button.addEventListener("click", filleter_Card)
 );
+
 get_Category();
 // ==================================== fetch data from api  ==============
 
 // ============== this is a function to fetch all data form server ==========================
 
 async function get_Category(value, num) {
+  show();
   let url = `https://pixabay.com/api/?key=36758041-1a16a3c3ed36636148e43569c&q=${
     value == undefined ? "all" : value
   }&image_type=photo&per_page=${num}`;
@@ -46,6 +59,7 @@ async function get_Category(value, num) {
   const data = await fetch(url)
     .then((items) => items.json())
     .then((data) => {
+      hide();
       get_images(data.hits, value);
     });
 }
@@ -162,7 +176,6 @@ function get_images(img, value) {
     filterable_Cards_2.innerHTML = all;
   }
 }
-const loading = document.querySelector(".loading");
 
 window.addEventListener("scroll", (e) => {
   // console.log(document.documentElement.scrollTop);
@@ -176,9 +189,6 @@ window.addEventListener("scroll", (e) => {
     window.pageYOffset
   ) {
     increment();
-    loading.style.display = "none";
-  } else {
-    loading.style.display = "block";
   }
 });
 
