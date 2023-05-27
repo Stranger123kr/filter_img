@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Filterable Image Gallery</title>
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="app.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <!-- === Filter Button === -->
+
+      <div class="filter_buttons">
+        <button class="active" data-name="all">Show All</button>
+        <button data-name="phones">Phones</button>
+        <button data-name="clothes">Clothes</button>
+        <button data-name="shoes">Shoes</button>
+      </div>
+
+      <!-- === Filter Images === -->
+
+      <div class="filterable_Cards">
+        <!-- this is the part of all images are coming form server and put into it -->
+      </div>
+      <div class="loading">
+        <div class="line"></div>
+      </div>
+    </div>
+  </body>
+</html>
